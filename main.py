@@ -2,6 +2,7 @@ import numpy as np
 import pickle
 import streamlit as st
 
+st.write(f"scikit-learn version: {sklearn.__version__}")
 # Charger le modèle
 model = pickle.load(open('./modele.pkl', 'rb'))
 

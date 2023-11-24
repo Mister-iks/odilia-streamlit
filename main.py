@@ -1,7 +1,7 @@
 import numpy as np
 import pickle
 import streamlit as st
-
+import sklearn
 model = pickle.load(open('./modele.pkl', 'rb'))
 
 def home():

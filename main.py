@@ -7,8 +7,8 @@ model = pickle.load(open('./modele.pkl', 'rb'))
 def home():
     st.title("Odilia SOME: Simulation de la solvabilité du client")
     image_url = "https://img.freepik.com/photos-gratuite/prise-vue-faible-angle-immeubles-grande-hauteur-sous-ciel-clair-francfort-allemagne_181624-30909.jpg"
-    st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
     st.image(image_url, caption="Your Image Caption", use_column_width=True)
+    st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
     checking_status = st.selectbox("Statut du compte", [0,1,2,3])
     duration = st.text_input("Durée du crédit", "")
     credit_history = st.selectbox("Antécédents de crédit", [0,1,2])

@@ -11,7 +11,7 @@ def home():
     checking_status = st.text_input("Statut du compte", "")
     duration = st.text_input("Durée du crédit", "")
     credit_history = st.text_input("Antécédents de crédit", "")
-    purpose = st.text_input("Objet du crédit", "")
+    purpose = st.selectbox("Objet du crédit", [1, 2, 3, 4, 5])
     credit_amount = st.text_input("Montant du crédit", "")
     savings_status = st.text_input("Situation du compte d'épargne/des obligations", "")
     employment = st.text_input("Emploi actuel, en nombre d'années.", "")

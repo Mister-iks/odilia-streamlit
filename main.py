@@ -26,10 +26,10 @@ def home():
     credit_history_sec = st.text_input("Nombre de crédits existants dans cette banque", "")
     job = st.selectbox("Emploi", [0,1,2,3])
     num_dependents = st.text_input("Nombre de personnes à charge", "")
-    own_telephone = st.slider("Téléphone", 0,1)
-    foreign_worker = st.slider("Travailleur étranger",0,1)
+    own_telephone = st.slider("Téléphone", min_value=0, max_value=1, value=0, step=1)
+    foreign_worker = st.slider("Travailleur étranger", min_value=0, max_value=1, value=0, step=1)
     sex = st.selectbox("Genre", [0,1])
-    marriage = st.slider("Statut matrimonial", 0,1)
+    marriage = st.slider("Statut matrimonial", min_value=0, max_value=1, value=0, step=1)
 
     if st.button("Prédire"):
         input_features = np.array([

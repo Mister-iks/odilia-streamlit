@@ -7,7 +7,7 @@ model = pickle.load(open('./modele.pkl', 'rb'))
 def home():
     st.title("Odilia SOME: Simulation de la solvabilité du client")
     st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
-
+    valeur_selectionnee = st.slider("Sélectionnez une valeur", min_value=0, max_value=100, value=50, step=1)
     checking_status = st.text_input("Statut du compte", "")
     duration = st.text_input("Durée du crédit", "")
     credit_history = st.text_input("Antécédents de crédit", "")

@@ -5,7 +5,7 @@ import streamlit as st
 model = pickle.load(open('./modele.pkl', 'rb'))
 
 def home():
-    st.title("Odilia SOME: Prediction")
+    st.title("Odilia SOME: Simulation de la solvabilité du client")
     st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
 
     checking_status = st.text_input("Statut du compte", "")

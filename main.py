@@ -1,11 +1,11 @@
 import numpy as np
 import pickle
 import streamlit as st
-import sklearn
+
 model = pickle.load(open('./modele.pkl', 'rb'))
 
 def home():
-    st.title("Votre Application Streamlit")
+    st.title("Odilia SOME: Prediction")
     st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
 
     checking_status = st.text_input("Statut du compte", "")
@@ -22,6 +22,8 @@ def home():
     age = st.text_input("Age", "")
     other_payment_plans = st.text_input("Autres plans de paiement", "")
     housing = st.text_input("Logement (location, propriété,...)", "")
+    credit_history_sec = st.text_input("Nombre de crédits existants dans cette banque", "")
+    job = st.text_input("Emploi", "")
     num_dependents = st.text_input("Nombre de personnes à charge", "")
     own_telephone = st.text_input("Téléphone", "")
     foreign_worker = st.text_input("Travailleur étranger", "")
@@ -29,12 +31,17 @@ def home():
     marriage = st.text_input("Statut matrimonial", "")
 
     if st.button("Prédire"):
-        input_features = np.array([float(checking_status), float(duration), float(credit_history), float(purpose),
-                                   float(credit_amount), float(savings_status), float(employment),
-                                   float(installment_commitment), float(other_parties), float(residence_since),
-                                   float(property_magnitude), float(age), float(other_payment_plans), float(housing),
-                                   float(num_dependents), float(own_telephone), float(foreign_worker), float(sex),
-                                   float(marriage)]).reshape(1, -1)
+        input_features = np.array([
+            float(checking_status), float(duration), float(credit_history), float(purpose),
+            float(credit_amount), float(savings_status), float(employment),
+            float(installment_commitment), float(other_parties), float(residence_since),
+            float(property_magnitude), float(age), float(other_payment_plans), float(housing),
+            float(credit_history_sec),  # Nouveau champ
+            float(job),  # Nouveau champ
+            float(num_dependents), float(own_telephone), float(foreign_worker), float(sex),
+            float(marriage)
+        ]).reshape(1, -1)
+        
         prediction = model.predict(input_features)
         st.success(f"Ce client est-il à risque ? {round(prediction[0], 2)}")
 

@@ -10,7 +10,9 @@ def home():
     image_url = "./pret.png"
     st.image(image_url, caption="Your Image Caption", use_column_width=True)
     st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
-    checking_status = st.selectbox("Statut du compte", [0,1,2,3])
+    checking_status = st.selectbox("Statut du compte", {0: "Aucun antécédent de crédit",
+               1: "Antécédent de crédit faible",
+               2: "Antécédent de crédit moyen"})
     duration = st.text_input("Durée du crédit", "")
     credit_history = st.selectbox("Antécédents de crédit", [0,1,2])
     purpose = st.selectbox("Objet du crédit", [1, 2, 3, 4, 5])

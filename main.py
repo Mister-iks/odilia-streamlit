@@ -4,13 +4,14 @@ import streamlit as st
 
 model = pickle.load(open('./modele.pkl', 'rb'))
 
+
 def home():
     st.title("Analyse du risque de crédit à partir d’un dossier de prêt")
     st.write("Odilia T.N. SOME 204672")
     image_url = "./pret.png"
     st.image(image_url, use_column_width=True)
     st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
-    checking_status = st.selectbox("Statut du compte", [0,1,2,3])
+    checking_status = st.selectbox("Statut du compte (['Pas de contrôle', '<0', '0<=X<200', '>=200'] ,  [0,1,2,3])", [0,1,2,3])
     duration = st.text_input("Durée du crédit", "")
     credit_history = st.selectbox("Antécédents de crédit", [0,1,2])
     purpose = st.selectbox("Objet du crédit", [1, 2, 3, 4, 5])

@@ -5,7 +5,7 @@ import streamlit as st
 model = pickle.load(open('./modele.pkl', 'rb'))
 
 def home():
-    st.title("MEMOIRE M2 BI & BIG DATA: ANALYSE DU RISQUE DE CRÉDIT À PARTIR DE DOSSIERS DE PRÊT")
+    st.title("Analyse du risque de crédit à partir d’un dossier de prêt")
     st.write("Odilia T.N. SOME 204672")
     image_url = "./pret.png"
     st.image(image_url, use_column_width=True)

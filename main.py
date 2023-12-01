@@ -8,7 +8,7 @@ def home():
     st.title("MEMOIRE M2 BI & BIG DATA: ANALYSE DU RISQUE DE CRÉDIT À PARTIR DE DOSSIERS DE PRÊT")
     st.write("Odilia T.N. SOME 204672")
     image_url = "./pret.png"
-    st.image(image_url, caption="Your Image Caption", use_column_width=True)
+    st.image(image_url, use_column_width=True)
     st.write("Remplissez le formulaire ci-dessous pour obtenir une prédiction.")
     checking_status = st.selectbox("Statut du compte", [0,1,2,3])
     duration = st.text_input("Durée du crédit", "")

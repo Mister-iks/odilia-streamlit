@@ -46,7 +46,7 @@ def home():
         ]).reshape(1, -1)
         
         prediction = model.predict(input_features)
-        st.success(f"Ce client est-il à risque ? {round(prediction[0], 2)}")
+        st.success(f"Ce client sera t'il solvable ? ? {round(prediction[0], 2)}")
 
 if __name__ == "__main__":
     home()

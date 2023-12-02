@@ -34,7 +34,8 @@ def home():
     marriage = st.slider("Statut matrimonial", min_value=0, max_value=1, value=0, step=1)
 
     if st.button("Prédire"):
-        input_features = np.array([
+        try:
+            input_features = np.array([
             float(checking_status), float(duration), float(credit_history), float(purpose),
             float(credit_amount), float(savings_status), float(employment),
             float(installment_commitment), float(other_parties), float(residence_since),
@@ -43,13 +44,15 @@ def home():
             float(job),  # Nouveau champ
             float(num_dependents), float(own_telephone), float(foreign_worker), float(sex),
             float(marriage)
-        ]).reshape(1, -1)
+            ]).reshape(1, -1)
         
-        prediction = model.predict(input_features)
-        if round(prediction[0], 2) == 0:
-            st.success(f"Ce client sera t'il solvable ? Non")
-        else:
-            st.success(f"Ce client sera t'il solvable ? Oui")
+            prediction = model.predict(input_features)
+            if round(prediction[0], 2) == 0:
+                st.success(f"Ce client sera t'il solvable ? Non")
+            else:
+                st.success(f"Ce client sera t'il solvable ? Oui")
+        except:
+            st.write("Une erreur s'est produite, merci de verifier les données saisies")
 
 if __name__ == "__main__":
     home()

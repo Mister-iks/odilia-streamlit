@@ -17,7 +17,7 @@ def home():
     purpose = st.selectbox("Objet du crédit(['entreprise', 'voiture neuve', 'voiture d'occasion', 'éducation', 'recyclage', 'autre', 'appareil ménager', 'radio/tv', 'mobilier/équipement', 'réparation'], [5,5,4,4,3,3,3,2,2,1])", [1, 2, 3, 4, 5])
     credit_amount = st.text_input("Montant du crédit", "")
     savings_status = st.selectbox("Situation du compte d'épargne/des obligations(['pas d'économies connues', '<100','100<=X<500','500<=X<1000','>=1000'], [0,1,2,3,4])", [0,1,2,3,4])
-    employment = st.text_input("Emploi actuel, en nombre d'années.(['chômeurs', '<1','1<=X<4','4<=X<7','>=7'], [0,1,2,3,4])", "")
+    employment = st.selectbox("Emploi actuel, en nombre d'années.(['chômeurs', '<1','1<=X<4','4<=X<7','>=7'], [0,1,2,3,4])", "")
     installment_commitment = st.text_input("Taux de remboursement en pourcentage du revenu disponible", "")
     other_parties = st.selectbox("Autres débiteurs / garants", [0,1,2])
     residence_since = st.text_input("Résidence actuelle depuis X années", "")

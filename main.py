@@ -33,23 +33,26 @@ def home():
     sex = st.selectbox("Genre", [0,1])
     marriage = st.slider("Statut matrimonial", min_value=0, max_value=1, value=0, step=1)
 
-    if st.button("Prédire"):
-        input_features = np.array([
-            float(checking_status), float(duration), float(credit_history), float(purpose),
-            float(credit_amount), float(savings_status), float(employment),
-            float(installment_commitment), float(other_parties), float(residence_since),
-            float(property_magnitude), float(age), float(other_payment_plans), float(housing),
-            float(credit_history_sec),  # Nouveau champ
-            float(job),  # Nouveau champ
-            float(num_dependents), float(own_telephone), float(foreign_worker), float(sex),
-            float(marriage)
-        ]).reshape(1, -1)
-        
-        prediction = model.predict(input_features)
-        if round(prediction[0], 2) == 0:
-            st.success(f"Ce client sera t'il solvable ? Non")
-        else:
-            st.success(f"Ce client sera t'il solvable ? Oui")
+    try:
+            input_features = np.array([
+                float(checking_status), float(duration), float(credit_history), float(purpose),
+                float(credit_amount), float(savings_status), float(employment),
+                float(installment_commitment), float(other_parties), float(residence_since),
+                float(property_magnitude), float(age), float(other_payment_plans), float(housing),
+                float(credit_history_sec), 
+                float(job),  
+                float(num_dependents), float(own_telephone), float(foreign_worker), float(sex),
+                float(marriage)
+            ]).reshape(1, -1)
+            prediction = model.predict(input_features)
+            if round(prediction[0], 2) == 0:
+                st.success(f"Ce client sera-t-il solvable ? Non")
+            else:
+                st.success(f"Ce client sera-t-il solvable ? Oui")
 
+        except ValueError as e:
+            st.error(f"Erreur de conversion : {str(e)}")
+        except Exception as e:
+            st.error(f"Une erreur s'est produite : {str(e)}")
 if __name__ == "__main__":
     home()
